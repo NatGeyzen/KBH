@@ -1,0 +1,17 @@
+.Footer {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+
+    /* MOCK UP ONLY */
+    border: 1px solid purple;
+}
+
+.MockUpTitle {
+    /* MOCK UP ONLY */
+    color: purple;
+}

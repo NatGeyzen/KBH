@@ -24,4 +24,7 @@
 /* MOCK UP ONLY */
 .MockUpTitle {
     color: darkblue;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
