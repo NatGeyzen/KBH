@@ -5,6 +5,7 @@
     padding: 15px 25px;
     justify-content: space-between;
     box-sizing: border-box;
+    max-height: 11vh;
     /* MOCK UP ONLY */
     border: 1px solid darkblue;
 }

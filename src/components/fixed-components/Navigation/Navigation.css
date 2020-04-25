@@ -1,0 +1,16 @@
+.Navigation {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    height: 75%;
+    width: 8vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 25px;
+
+    /* MOCK UP ONLY */
+    border: 1px solid darkgreen;
+}

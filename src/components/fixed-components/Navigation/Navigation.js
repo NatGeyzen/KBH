@@ -12,7 +12,7 @@ const Navigation = props => {
             <div className="ButtonContainer">
                 toggle button
             </div> */}
-            <div>test</div>
+            <div>nav</div>
         </div>
     );
 };
