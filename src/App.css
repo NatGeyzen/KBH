@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .App-header {
