@@ -33,6 +33,10 @@ ion-icon {
     padding: 0 50px;
     margin-bottom: 30px;
     overflow: hidden;
+
+    /* MOCK UP ONLY */
+    font-style: italic;
+    font-size: 14px;
 }
 
 

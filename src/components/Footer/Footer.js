@@ -40,7 +40,7 @@ const Footer = props => {
             </button>
             <div className="FooterMockUpOnly">FOOTER</div>
             <div className={footerTextClass}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                On devices with a mouse, the full footer will appear when the mouse is hovering over any part of the footer and stay visible. <br />It will disappear when the mouse leaves the footer. <br /> On devices without a mouse, the footer can be toggled up or down by clicking the arrow icon.
             </div>
         </div>
     );
