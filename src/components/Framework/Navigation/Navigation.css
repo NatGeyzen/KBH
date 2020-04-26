@@ -14,3 +14,7 @@
     /* MOCK UP ONLY */
     border: 1px solid darkgreen;
 }
+
+.Navigation > ion-icon {
+    font-size: 2em;
+}

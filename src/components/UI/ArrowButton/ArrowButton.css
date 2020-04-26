@@ -1,11 +1,5 @@
 .ArrowButton {
     border: none;
     background-color: transparent;
-    margin-top: 10px;
     outline: none;
-}
-
-ion-icon {
-    font-size: 1.5em;
-    font-weight: bold;
 }

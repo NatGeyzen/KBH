@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import ArrowButton from '../../UI/ArrowButton/ArrowButton';
+
 import './Footer.css';
 
 const Footer = props => {
@@ -33,11 +35,12 @@ const Footer = props => {
             className={footerClass} 
             onMouseEnter={toggleFooterUp}
             onMouseLeave={toggleFooterDown}>
-            <button 
+            <ArrowButton 
                 className="ToggleFooterButton"
-                onClick={onClickFooterHandler}>
-                <ion-icon name={toggleIcon}></ion-icon>
-            </button>
+                onClick={onClickFooterHandler}
+                iconName={toggleIcon}
+                iconSize="small"
+            />
             <div className="FooterMockUpOnly">FOOTER</div>
             <div className={footerTextClass}>
                 On devices with a mouse, the full footer will appear when the mouse is hovering over any part of the footer and stay visible. <br />It will disappear when the mouse leaves the footer. <br /> On devices without a mouse, the footer can be toggled up or down by clicking the arrow icon.

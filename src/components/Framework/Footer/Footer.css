@@ -12,19 +12,12 @@
     height: auto;
     /* MOCK UP ONLY */
     border: 1px solid red;
+    padding-top: 10px;
 }
 
-.ToggleFooterButton {
-    border: none;
-    background-color: transparent;
-    margin-top: 10px;
-    outline: none;
-}
-
-ion-icon {
+.Footer > ion-icon {
     font-size: 1.5em;
-    font-weight: bold;
-}
+    font-weight: bold}
 
 .FooterText {
     display: flex;

@@ -1,9 +1,14 @@
 import React from 'react';
 
-const ArrowButton = () => {
+import './ArrowButton.css';
+
+const ArrowButton = props => {
     return (
         <button className="ArrowButton">
-            <ion-icon name={props.iconName}></ion-icon>
+            <ion-icon 
+                name={props.iconName}
+                size={props.iconSize}>
+            </ion-icon>
         </button>
     );
 };

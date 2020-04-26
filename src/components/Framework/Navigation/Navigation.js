@@ -2,16 +2,19 @@ import React from 'react';
 
 import './Navigation.css';
 
+import ArrowButton from '../../UI/ArrowButton/ArrowButton';
+
 const Navigation = props => {
     return (
         <div className="Navigation">
-            <button>
-                <ion-icon name="chevron-up-outline"></ion-icon>
-            </button>
+            <ArrowButton 
+                iconName="chevron-up-outline"
+                iconSize="large"/>
             <div>nav</div>
-            <button>
-                <ion-icon name="chevron-down-outline"></ion-icon>
-            </button>
+            <ArrowButton 
+                iconName="chevron-down-outline"
+                iconSize="large"/>
+            
             
         </div>
     );
