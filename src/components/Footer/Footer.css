@@ -1,0 +1,110 @@
+.FooterMockUpOnly {
+    margin-bottom: 10px;
+}
+
+
+.Footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    height: auto;
+    /* MOCK UP ONLY */
+    border: 1px solid red;
+}
+
+.ToggleFooterButton {
+    border: none;
+    background-color: transparent;
+    margin-top: 10px;
+    outline: none;
+}
+
+ion-icon {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.FooterText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 50px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+
+/* ------------------------------
+    TRANSITION EFFECTS
+   ------------------------------ */
+
+.FooterCollapsed {
+    max-height: 10vh;
+    transition: max-height 0.6s ease-out;
+}
+
+.FooterFull {
+    max-height: 70vh;
+    transition: max-height 0.6s ease-in;
+}
+
+@media (max-height: 700px) {
+    .FooterCollapsed {
+        max-height: 12vh;
+    }
+}
+
+@media (min-height: 1000px) {
+    .FooterCollapsed {
+        max-height: 7vh;
+    }
+}
+
+@media (min-height: 1300px) {
+    .FooterCollapsed {
+        max-height: 5.5vh;
+    }
+}
+
+
+/* ------------------------------
+    ANIMATION EFFECTS
+   ------------------------------ */
+
+.FooterTextHidden {
+    animation: footerShow 0.3s ease-out forwards;
+    -webkit-animation: footerShow 0.3s ease-out forwards;
+}
+
+.FooterTextVisible {
+    animation: footerHide 0.3s ease-out forwards;
+    -webkit-animation: footerShow 0.3s ease-out forwards;
+}
+
+@keyframes footerShow {
+    0% {
+        transform: translateY(150%);
+    }
+    50% {
+        transform: translateY(50%);
+    }
+
+    100% {
+        transform: translateY(5%);
+    }
+}
+
+@keyframes footerHide {
+    0% {
+        transform: translateY(5%);
+    }
+    50% {
+        transform: translateY(50%);
+    }
+
+    100% {
+        transform: translateY(150%);
+    }
+}
