@@ -5,14 +5,14 @@ import './Navigation.css';
 const Navigation = props => {
     return (
         <div className="Navigation">
-            {/* <div className="LogoContainer">
-                logo
-            </div>
-            <div className="MockUpTitle">HEADER</div>
-            <div className="ButtonContainer">
-                toggle button
-            </div> */}
+            <button>
+                <ion-icon name="chevron-up-outline"></ion-icon>
+            </button>
             <div>nav</div>
+            <button>
+                <ion-icon name="chevron-down-outline"></ion-icon>
+            </button>
+            
         </div>
     );
 };
