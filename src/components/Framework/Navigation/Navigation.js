@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 
+import iconHouse from '../../../assets/images/house.png';
 import iconAward from '../../../assets/images/award.png';
 import iconBlog from '../../../assets/images/blog.png';
 import iconMarket from '../../../assets/images/market.png';
 
 import './Navigation.css';
 
-import ArrowButton from '../../UI/ArrowButton/ArrowButton';
+// import ArrowButton from '../../UI/ArrowButton/ArrowButton';
 import NavButton from './NavButton/NavButton';
 
 const Navigation = props => {
 
     const learnMorePages = [
+        ['Home', iconHouse],
         ['About Us', iconAward],
         ['Blog', iconBlog],
         ['Market Insider', iconMarket]
@@ -49,9 +51,9 @@ const Navigation = props => {
     
     return (
         <div className="Navigation">
-            <ArrowButton 
+            {/* <ArrowButton 
                 iconName="chevron-up-outline"
-                iconSize="large"/>
+                iconSize="large"/> */}
             
             {learnMorePages.map(page => 
                 <NavButton 
@@ -69,9 +71,9 @@ const Navigation = props => {
                 />
             )}
 
-            <ArrowButton 
+            {/* <ArrowButton 
                 iconName="chevron-down-outline"
-                iconSize="large"/>
+                iconSize="large"/> */}
             
             
         </div>

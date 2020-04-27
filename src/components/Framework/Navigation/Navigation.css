@@ -1,16 +1,16 @@
 .Navigation {
     position: absolute;
-    right: 0;
-    top: 50%;
+    left: 0;
+    top: 60%;
     transform: translate(0, -50%);
-    height: 60%;
-    width: 10vw;
+    height: 40%;
+    width: auto;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin: 0 25px;
+    /* margin: 0 25px; */
 
 }
 
@@ -24,26 +24,10 @@ ul {
     justify-content: center;
     height: 50%;
     padding: 0;
+    border: 1px solid green;
 }
 
 
 .NavItems {
-    padding: 2vh 0;
     cursor: pointer;
-}
-
-.NavGeneralIcons {
-    font-size: 0.6em;
-    font-weight: bold;
-    text-shadow: 1px 1px 1px grey;
-}
-
-.NavDescriptiveIcons {
-    font-size: 1em;
-    transition: all 1.5s ease-out;
-    text-shadow: 1px 1px 1px grey;
-}
-
-.NavDescriptiveIconsTransition {
-    font-size: 2em;
 }
