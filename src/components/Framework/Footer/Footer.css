@@ -77,7 +77,7 @@
 
 .FooterTextVisible {
     animation: footerHide 0.3s ease-out forwards;
-    -webkit-animation: footerShow 0.3s ease-out forwards;
+    -webkit-animation: footerHide 0.3s ease-out forwards;
 }
 
 @keyframes footerShow {

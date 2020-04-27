@@ -1,0 +1,103 @@
+.NavItem {
+    height: 50px;
+    width: 10px;
+    border-radius: 50px;
+    background-color: lightgrey;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    width: 10px;
+    border-radius: 50px;
+}
+
+
+.ActiveNav {
+    background-color: blue;
+}
+
+.NavListItem {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.NavImage {
+    height: 30px;
+    width: auto;
+
+}
+
+.NavPageName {
+    font-size: 12px;
+    font-weight: bold;
+    font-variant: small-caps;
+    height: 30px;
+    width: 120px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ------------------------------
+    TRANSITION EFFECTS
+   ------------------------------ */
+/* .OriginalOpacity {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+.AdjustedOpacity {
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+} */
+
+/* ------------------------------
+    ANIMATION EFFECTS
+   ------------------------------ */
+
+.CollapsedNav {
+    animation: hideFullNav 0.3s ease-in-out forwards;
+    -webkit-animation: hideFullNav 0.3s ease-in-out forwards;
+}
+
+.FullNav {
+    display: flex;
+    animation: showFullNav 0.3s ease-in-out forwards;
+    -webkit-animation: showFullNav 0.3s ease-in-out forwards;
+}
+
+@keyframes showFullNav {
+    0% {
+       width: 10px;
+       transform: translateX(0);
+       border-radius: 50px;
+       opacity: 0;
+    } 
+    85% {
+        width: 140px;
+        opacity: 0.5;
+    }   
+    100% {
+        width: 120px;
+        transform: translateX(-30%);
+        border-radius: 100px;
+        opacity: 1;
+    }
+}
+
+@keyframes hideFullNav {
+    0% {
+       width: 120px;
+       transform: translateX(-10%);
+       border-radius: 100px;
+    } 
+    100% {
+        width: 10px;
+        transform: translateX(0);
+        border-radius: 50px;
+    }
+}

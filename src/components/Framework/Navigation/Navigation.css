@@ -3,8 +3,8 @@
     right: 0;
     top: 50%;
     transform: translate(0, -50%);
-    height: 50%;
-    width: 8vw;
+    height: 60%;
+    width: 10vw;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -12,8 +12,6 @@
     align-items: center;
     margin: 0 25px;
 
-    /* MOCK UP ONLY */
-    border: 1px solid darkgreen;
 }
 
 .Navigation > ion-icon {
@@ -31,10 +29,21 @@ ul {
 
 .NavItems {
     padding: 2vh 0;
+    cursor: pointer;
 }
 
-.NavItems > i {
+.NavGeneralIcons {
     font-size: 0.6em;
     font-weight: bold;
     text-shadow: 1px 1px 1px grey;
+}
+
+.NavDescriptiveIcons {
+    font-size: 1em;
+    transition: all 1.5s ease-out;
+    text-shadow: 1px 1px 1px grey;
+}
+
+.NavDescriptiveIconsTransition {
+    font-size: 2em;
 }

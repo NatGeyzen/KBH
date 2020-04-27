@@ -45,6 +45,7 @@ const Footer = props => {
             <div className={footerTextClass}>
                 On devices with a mouse, the full footer will appear when the mouse is hovering over any part of the footer and stay visible. <br />It will disappear when the mouse leaves the footer. <br /> On devices without a mouse, the footer can be toggled up or down by clicking the arrow icon.
             </div>
+            <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
         </div>
     );
 };
