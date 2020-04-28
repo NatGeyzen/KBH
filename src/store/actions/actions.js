@@ -5,10 +5,9 @@ import {
     NAVIGATE_PAGES_ONSCROLLDOWN
 } from '../actions/actionTypes';
 
-export const togglePageMode = (pageMode) => {
+export const togglePageMode = () => {
     return {
         type: TOGGLE_PAGE_MODE,
-        pageMode
     };
 };
 

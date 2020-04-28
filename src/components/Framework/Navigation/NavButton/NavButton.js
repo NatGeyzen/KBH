@@ -1,12 +1,28 @@
+/* EXTERNAL COMPONENT IMPORTS
+---------------------------------------- */
 import React from 'react';
+import { connect } from 'react-redux';
 
+/* INTERNAL FUNCTION IMPORTS
+---------------------------------------- */
+import { setActivePageOnClick } from './../../../../store/actions/actions';
+
+/* STYLE IMPORTS
+---------------------------------------- */
 import './NavButton.css';
 
+
+
+/* NAVBUTTON COMPONENT
+---------------------------------------- */
 const NavButton = props => {
+
+    const { setActivePageOnClick } = props;
+
     return (
         <button 
             className={props.buttonClassName}
-            onClick={props.clickToggle}
+            onClick={props.show ? () => setActivePageOnClick(props.id) : props.hoverToggleOn}
             onMouseOver={props.hoverToggleOn}
             onMouseLeave={props.hoverToggleOff}>
             {props.show ? 
@@ -20,4 +36,15 @@ const NavButton = props => {
     )
 }
 
-export default NavButton;
+/* REDUX DISPATCH PROPS
+---------------------------------------- */
+const mapDispatchToProps = dispatch => {
+    return {
+        setActivePageOnClick: (pageID) => dispatch(setActivePageOnClick(pageID))
+    };
+};
+
+
+/* COMPONENT EXPORT
+---------------------------------------- */
+export default connect(null, mapDispatchToProps)(NavButton);

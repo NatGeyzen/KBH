@@ -35,10 +35,15 @@ const reducer = (state = initialState, action) => {
                 }
             }
         case SET_ACTIVE_PAGE_ONCLICK:
-            return {
-                ...state,
-                activePageNumber: action.pageID
-            };
+            console.log('clicked!')
+            if (action.pageID !== state.activePageNumber) {
+                return {
+                    ...state,
+                    activePageNumber: action.pageID    
+                } 
+            } else { 
+                return state;
+            }
         case NAVIGATE_PAGES_ONSCROLLUP:
             return {
                 ...state,

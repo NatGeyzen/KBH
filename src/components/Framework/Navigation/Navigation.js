@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
+/* EXTERNAL COMPONENT IMPORTS
+---------------------------------------- */
+import React, { useState, } from 'react';
 import { connect } from 'react-redux';
 
+/* INTERNAL COMPONENT IMPORTS
+---------------------------------------- */
+import NavButton from './NavButton/NavButton';
 import iconHouse from '../../../assets/images/house.png';
 import iconAward from '../../../assets/images/award.png';
 import iconBlog from '../../../assets/images/blog.png';
@@ -9,24 +14,28 @@ import iconSearch from '../../../assets/images/search.png';
 import iconSell from '../../../assets/images/sell.png';
 import iconPhone from '../../../assets/images/smartphone.png';
 
+/* STYLE IMPORTS
+---------------------------------------- */
 import './Navigation.css';
 
-import NavButton from './NavButton/NavButton';
 
+
+/* NAVIGATION COMPONENT
+---------------------------------------- */
 const Navigation = props => {
 
     const learnMorePages = [
-        ['Home', iconHouse],
-        ['About Us', iconAward],
-        ['Blog', iconBlog],
-        ['Market Insider', iconMarket]
+        [1, 'Home', iconHouse],
+        [2, 'About Us', iconAward],
+        [3, 'Blog', iconBlog],
+        [4, 'Market Insider', iconMarket]
     ];
 
     const workWithPages = [
-        ['Home', iconHouse],
-        ['Find A Home', iconSearch],
-        ['Sell', iconSell],
-        ['Contact Us', iconPhone]
+        [1, 'Home', iconHouse],
+        [2, 'Find A Home', iconSearch],
+        [3, 'Sell', iconSell],
+        [4, 'Contact Us', iconPhone]
     ];
 
     let arrayToRender = [];
@@ -49,38 +58,41 @@ const Navigation = props => {
         setNavItemClass('NavItem CollapsedNav');
     }
 
-    const NavModeHandler = () => {
-        if (navItemCollapsed) {
-            showFullNav();console.log('collapsed!');
-        }
-        else if (!navItemCollapsed) {
-            console.log('Hello');
-        }
-    }
-
     const itemKey = () => {
         return Math.random() * 50;
     };
+
+    const clickHandler = (event) => {
+        if (!navItemCollapsed) { 
+            console.log(event);
+            //  setActivePageOnClick(pageID);  
+        } 
+    };
+    
     
     return (
         <div className="Navigation">
             {arrayToRender.map(page => 
                 <NavButton 
                     key={itemKey()}
+                    id={page[0]}
                     buttonClassName={navItemClass}
-                    clickToggle={NavModeHandler}
                     hoverToggleOn={showFullNav}
                     hoverToggleOff={hideFullNav}
                     show={!navItemCollapsed}
-                    icon={page[1]}
-                    alt={page[0]}
-                    pageName={page[0]}
-                />
-            )}
+                    icon={page[2]}
+                    alt={page[1]}
+                    pageName={page[1]}
+                />  
+                )
+            }
+            
         </div>
     );
 };
 
+/* REDUX STATE PROPS
+---------------------------------------- */
 const mapStateToProps = state => {
     return {
         pageMode: state.pageModeToLearn,
@@ -88,4 +100,7 @@ const mapStateToProps = state => {
     };
 };
 
+
+/* COMPONENT EXPORT
+---------------------------------------- */
 export default connect(mapStateToProps)(Navigation);
