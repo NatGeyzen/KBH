@@ -2,6 +2,8 @@ import React from 'react';
 
 import './Header.css';
 
+import TogglePageMode from '../../../containers/TogglePageMode/TogglePageMode';
+
 const Header = props => {
     return (
         <div className="Header">
@@ -9,9 +11,7 @@ const Header = props => {
                 logo
             </div>
             <div className="MockUpTitle">HEADER</div>
-            <div className="ButtonContainer">
-                toggle button
-            </div>
+            <TogglePageMode />
             
         </div>
     );

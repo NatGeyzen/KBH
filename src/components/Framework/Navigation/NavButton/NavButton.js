@@ -6,13 +6,11 @@ const NavButton = props => {
     return (
         <button 
             className={props.buttonClassName}
-            onClick={props.clickToggle}
-            onMouseEnter={props.hoverToggleOn}
-            onMouseLeave={props.hoverToggleOff}>
+            onClick={props.goToPage}>
             {props.show ? 
-                <li className="NavListItem">
+                <li>
                     <img src={props.icon} alt={props.alt} className="NavImage" />
-                    <span className={props.spanClassName}>{props.pageName}</span>
+                    <span className="NavPageName">{props.pageName}</span>
                 </li>
                 : null 
             }

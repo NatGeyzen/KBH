@@ -19,21 +19,24 @@ const Navigation = props => {
         ['Market Insider', iconMarket]
     ];
 
+    // const workWithPages = [
+    //     ['Home'],
+    //     ['Find A Home'],
+    //     ['Sell'],
+    //     ['Contact Us']
+    // ];
+
     const [ navItemCollapsed, setNavItemCollapsed ] = useState(true);
     const [ navItemClass, setNavItemClass ] = useState('NavItem');
-    const [ navPageNameClass, setNavPageNameClass ] = useState('NavPageName OriginalOpacity')
-    const [ goToPage, setGoToPage ] = useState()
 
     const showFullNav = () => {
         setNavItemCollapsed(false);
         setNavItemClass('NavItem FullNav');
-        setNavPageNameClass('NavPageName AdjustedOpacity');
     };
 
     const hideFullNav = () => {
         setNavItemCollapsed(true);
         setNavItemClass('NavItem CollapsedNav');
-        setNavPageNameClass('NavPageName OriginalOpacity');
     }
 
     const NavModeHandler = () => {
@@ -41,7 +44,7 @@ const Navigation = props => {
             showFullNav();
         }
         else if (!navItemCollapsed) {
-            setGoToPage(true);
+            console.log('Hello');
         }
     }
 
@@ -51,9 +54,6 @@ const Navigation = props => {
     
     return (
         <div className="Navigation">
-            {/* <ArrowButton 
-                iconName="chevron-up-outline"
-                iconSize="large"/> */}
             
             {learnMorePages.map(page => 
                 <NavButton 
@@ -65,17 +65,11 @@ const Navigation = props => {
                     show={!navItemCollapsed}
                     icon={page[1]}
                     alt={page[0]}
-                    spanClassName={navPageNameClass}
                     pageName={page[0]}
 
                 />
             )}
-
-            {/* <ArrowButton 
-                iconName="chevron-down-outline"
-                iconSize="large"/> */}
-            
-            
+      
         </div>
     );
 };
