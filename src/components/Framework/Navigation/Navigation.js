@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 
 import iconHouse from '../../../assets/images/house.png';
 import iconAward from '../../../assets/images/award.png';
 import iconBlog from '../../../assets/images/blog.png';
 import iconMarket from '../../../assets/images/market.png';
+import iconSearch from '../../../assets/images/search.png';
+import iconSell from '../../../assets/images/sell.png';
+import iconPhone from '../../../assets/images/smartphone.png';
 
 import './Navigation.css';
 
-// import ArrowButton from '../../UI/ArrowButton/ArrowButton';
 import NavButton from './NavButton/NavButton';
 
-const Navigation = () => {
+const Navigation = props => {
 
     const learnMorePages = [
         ['Home', iconHouse],
@@ -19,12 +22,19 @@ const Navigation = () => {
         ['Market Insider', iconMarket]
     ];
 
-    // const workWithPages = [
-    //     ['Home'],
-    //     ['Find A Home'],
-    //     ['Sell'],
-    //     ['Contact Us']
-    // ];
+    const workWithPages = [
+        ['Home', iconHouse],
+        ['Find A Home', iconSearch],
+        ['Sell', iconSell],
+        ['Contact Us', iconPhone]
+    ];
+
+    let arrayToRender = [];
+    if (props.pageMode) {
+        arrayToRender = learnMorePages;
+    } else {
+        arrayToRender = workWithPages;
+    }
 
     const [ navItemCollapsed, setNavItemCollapsed ] = useState(true);
     const [ navItemClass, setNavItemClass ] = useState('NavItem');
@@ -54,8 +64,7 @@ const Navigation = () => {
     
     return (
         <div className="Navigation">
-            
-            {learnMorePages.map(page => 
+            {arrayToRender.map(page => 
                 <NavButton 
                     key={itemKey()}
                     buttonClassName={navItemClass}
@@ -66,12 +75,17 @@ const Navigation = () => {
                     icon={page[1]}
                     alt={page[0]}
                     pageName={page[0]}
-
                 />
             )}
-      
         </div>
     );
 };
 
-export default Navigation;
+const mapStateToProps = state => {
+    return {
+        pageMode: state.pageModeToLearn,
+        activePage: state.activePageNumber
+    };
+};
+
+export default connect(mapStateToProps)(Navigation);
