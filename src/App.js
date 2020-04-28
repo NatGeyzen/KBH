@@ -1,61 +1,59 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 
 import Header from './components/Framework/Header/Header';
 import Navigation from './components/Framework/Navigation/Navigation';
 import Footer from './components/Framework/Footer/Footer';
 import HomePageLearnMore from './pages/HomePageLearnMore/HomePageLearnMore';
 import AboutUs from './pages/AboutUs/AboutUs';
+import HomePageWorkWith from './pages/HomePageWorkWith/HomePageWorkWith';
+import FindAHome from './pages//FindAHome/FindAHome';
 
 import './App.css';
 
-const App = () => {
+const App = props => {
 
-	const [ pageNumberLearnMore, setPageNumberLearnMore ] = useState(1);
-
-	let pageContent;
-
-	switch (pageNumberLearnMore) {
-		case 0:
-			pageContent = <HomePageLearnMore pageNumber={pageNumberLearnMore}/>;
-			break;
-		case 1:
-			pageContent = <AboutUs />;
-			break;
-		default:
-			pageContent = <HomePageLearnMore />;	
-	}
-
-	const goToPageHandler = (pageNumber) => {
-		switch (pageNumber) {
-			case 1:
-				setPageNumberLearnMore(0);
-				break;
-			case 2:
-				setPageNumberLearnMore(1);
-				break;
-			case 3:
-				setPageNumberLearnMore(2);
-				break;
-			case 4:
-				setPageNumberLearnMore(3);
-				break;
-			default: 
-				setPageNumberLearnMore(0);
-		}
-		if (pageNumber === 2) {
-			setPageNumberLearnMore(1);
-		}
-	} 
+	let dynamicPage;
+    if (props.pageMode) {
+        switch (props.activePage) {
+            case 1:
+                 dynamicPage = <HomePageLearnMore />; 
+                 break;
+            case 2:
+                dynamicPage = <AboutUs />;
+                break;
+            default:
+                dynamicPage = <HomePageLearnMore />; 
+        };
+    } else {
+        switch (props.activePage) {
+            case 1:
+                 dynamicPage = <HomePageWorkWith />;
+                 break;
+            case 2:
+                dynamicPage = <FindAHome />;
+                break;
+            default:
+                dynamicPage = <HomePageWorkWith />;
+		};
+	};
 
     return (
 		<div 
 			className="App">
             <Header />
-            <Navigation goToPage={goToPageHandler}/>
+            <Navigation />
             <Footer />  
-			{pageContent}
+			{dynamicPage}
         </div>
     );
 }
 
-export default App;
+const mapStateToProps = state => {
+    return {
+        pageMode: state.pageModeToLearn,
+        activePage: state.activePageNumber
+    };
+};
+
+export default connect(mapStateToProps)(App);

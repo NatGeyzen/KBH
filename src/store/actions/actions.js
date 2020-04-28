@@ -1,6 +1,6 @@
 import { 
     TOGGLE_PAGE_MODE,
-    NAVIGATE_PAGES_ONCLICK,
+    SET_ACTIVE_PAGE_ONCLICK,
     NAVIGATE_PAGES_ONSCROLLUP,
     NAVIGATE_PAGES_ONSCROLLDOWN
 } from '../actions/actionTypes';
@@ -12,9 +12,9 @@ export const togglePageMode = (pageMode) => {
     };
 };
 
-export const navigatePagesOnClick = (pageID) => {
+export const setActivePageOnClick = (pageID) => {
     return {
-        type: NAVIGATE_PAGES_ONCLICK,
+        type: SET_ACTIVE_PAGE_ONCLICK,
         pageID
     };
 };

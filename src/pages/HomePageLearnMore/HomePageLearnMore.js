@@ -2,7 +2,7 @@ import React from 'react';
 
 const HomePageLearnMore = props => {
     return (
-        <div> test </div>
+        <div style={{marginTop: '20px'}}>  LEARN FROM KEVIN: 'HOME' PAGE  </div>
     )
 };
 

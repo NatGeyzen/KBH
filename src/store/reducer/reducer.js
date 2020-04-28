@@ -1,8 +1,8 @@
 import { 
-    NAVIGATE_PAGES_ONCLICK,
     NAVIGATE_PAGES_ONSCROLLUP,
     NAVIGATE_PAGES_ONSCROLLDOWN,
-    TOGGLE_PAGE_MODE
+    TOGGLE_PAGE_MODE,
+    SET_ACTIVE_PAGE_ONCLICK
  } from '../actions/actionTypes';
 
 const initialState = {
@@ -34,7 +34,7 @@ const reducer = (state = initialState, action) => {
                     pageModeToLearn: true
                 }
             }
-        case NAVIGATE_PAGES_ONCLICK:
+        case SET_ACTIVE_PAGE_ONCLICK:
             return {
                 ...state,
                 activePageNumber: action.pageID
