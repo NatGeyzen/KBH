@@ -10,7 +10,7 @@ import './Navigation.css';
 // import ArrowButton from '../../UI/ArrowButton/ArrowButton';
 import NavButton from './NavButton/NavButton';
 
-const Navigation = props => {
+const Navigation = () => {
 
     const learnMorePages = [
         ['Home', iconHouse],
@@ -41,7 +41,7 @@ const Navigation = props => {
 
     const NavModeHandler = () => {
         if (navItemCollapsed) {
-            showFullNav();
+            showFullNav();console.log('collapsed!');
         }
         else if (!navItemCollapsed) {
             console.log('Hello');
