@@ -17,11 +17,11 @@ import './NavButton.css';
 ---------------------------------------- */
 const NavButton = props => {
 
-    const { setActivePageOnClick } = props;
+    const { activePage, setActivePageOnClick } = props;
 
     return (
         <button 
-            className={props.buttonClassName}
+            className={props.id === activePage ? props.buttonClassName + ' ActiveNav' : props.buttonClassName}
             onClick={props.show ? () => setActivePageOnClick(props.id) : props.hoverToggleOn}
             onMouseOver={props.hoverToggleOn}
             onMouseLeave={props.hoverToggleOff}>
@@ -38,6 +38,11 @@ const NavButton = props => {
 
 /* REDUX DISPATCH PROPS
 ---------------------------------------- */
+const mapStateToProps = state => {
+    return {
+        activePage: state.activePageNumber
+    };
+};
 const mapDispatchToProps = dispatch => {
     return {
         setActivePageOnClick: (pageID) => dispatch(setActivePageOnClick(pageID))
@@ -47,4 +52,4 @@ const mapDispatchToProps = dispatch => {
 
 /* COMPONENT EXPORT
 ---------------------------------------- */
-export default connect(null, mapDispatchToProps)(NavButton);
+export default connect(mapStateToProps, mapDispatchToProps)(NavButton);

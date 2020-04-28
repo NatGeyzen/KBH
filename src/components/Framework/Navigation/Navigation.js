@@ -24,13 +24,13 @@ import './Navigation.css';
 ---------------------------------------- */
 const Navigation = props => {
 
+    // CONSTANT VARIABLES
     const learnMorePages = [
         [1, 'Home', iconHouse],
         [2, 'About Us', iconAward],
         [3, 'Blog', iconBlog],
         [4, 'Market Insider', iconMarket]
     ];
-
     const workWithPages = [
         [1, 'Home', iconHouse],
         [2, 'Find A Home', iconSearch],
@@ -38,12 +38,15 @@ const Navigation = props => {
         [4, 'Contact Us', iconPhone]
     ];
 
+    //  CONDITIONAL VARIABLES
     let arrayToRender = [];
     if (props.pageMode) {
         arrayToRender = learnMorePages;
     } else {
         arrayToRender = workWithPages;
     }
+
+
 
     const [ navItemCollapsed, setNavItemCollapsed ] = useState(true);
     const [ navItemClass, setNavItemClass ] = useState('NavItem');
@@ -61,14 +64,6 @@ const Navigation = props => {
     const itemKey = () => {
         return Math.random() * 50;
     };
-
-    const clickHandler = (event) => {
-        if (!navItemCollapsed) { 
-            console.log(event);
-            //  setActivePageOnClick(pageID);  
-        } 
-    };
-    
     
     return (
         <div className="Navigation">
