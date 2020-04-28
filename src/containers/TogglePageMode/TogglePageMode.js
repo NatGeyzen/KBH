@@ -1,31 +1,37 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import { togglePageMode } from './../../store/actions/actions';
 import toggleLeft from '../../assets/images/toggle.png';
 import toggleRight from '../../assets/images/toggle-right.png';
+import './TogglePageMode.css';
 
 const TogglePageModeContainer = props => {
 
     let toggleIcon;
     let toggleIconAlt;
 
-    if (props.pageModeToLearn) {
+    const { pageModeToLearn, togglePageMode } = props;
+
+    if (pageModeToLearn) {
         toggleIcon = toggleLeft;
         toggleIconAlt = 'Toggle Button in left position';
     } else {
         toggleIcon = toggleRight;
         toggleIconAlt = 'Toggle Button in right position';
-    }
+        
+    }       
 
     return (
-        <Fragment>
-            <div>Learn from Kevin</div>
-            <button onClick={togglePageMode}>
-                <img src={toggleIcon} alt={toggleIconAlt} />
+        <div className="ToggleContainer">
+            <div className="ToggleTextLeft">Learn from Kevin</div>
+            <button 
+                className="ToggleButton"
+                onClick={() => togglePageMode()}>
+                <img src={toggleIcon} alt={toggleIconAlt} className="ToggleIcon"/>
             </button>
-            <div>Work with Kevin</div>
-        </Fragment>
+            <div className="ToggleTextRight">Work with Kevin</div>
+        </div>
     );
 };
 

@@ -1,0 +1,42 @@
+.ToggleContainer, .ToggleTextLeft, .ToggleTextRight {
+    display: flex;
+    align-items: center;
+}
+
+.ToggleContainer {
+    height: 50px;
+    justify-content: center;
+    margin-right: 0;
+}
+
+.ToggleTextLeft, .ToggleTextRight {
+    height: 50%;
+    font-variant: small-caps;
+    margin: 0 10px;
+    width: 75px;
+    height: 100%;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+}
+
+.ToggleTextLeft {
+    justify-content: flex-start;
+}
+
+.ToggleTextRight {
+    justify-content: flex-start;
+}
+
+.ToggleButton {
+    background-color: white;
+    outline: none;
+    border: none;
+}
+
+.ToggleIcon {
+    width: 35px;
+    height: auto;
+    background-color: white;
+    cursor: pointer;
+}

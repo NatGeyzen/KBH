@@ -23,10 +23,17 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case TOGGLE_PAGE_MODE: 
-            return {
-                ...state,
-                pageModeToLearn: action.pageModeToLearn
-            };
+            if (state.pageModeToLearn) {
+                return {
+                    ...state,
+                    pageModeToLearn: false
+                } 
+            } else {
+                return {
+                    ...state,
+                    pageModeToLearn: true
+                }
+            }
         case NAVIGATE_PAGES_ONCLICK:
             return {
                 ...state,
