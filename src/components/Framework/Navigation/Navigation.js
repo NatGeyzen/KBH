@@ -62,14 +62,12 @@ const Navigation = props => {
     const showFullNav = () => {
         setNavItemCollapsed(false);
         setNavItemClass('NavItem FullNav');
-        console.log('showing full nav');
     };
 
     const hideFullNav = () => {
         setNavItemCollapsed(true);
         setNavItemClass('NavItem CollapsedNav');
-        setTimeout(resetAnimation, 1000);
-        console.log('hiding full nav');
+        setTimeout(resetAnimation, 500);
     }
 
     const itemKey = () => {

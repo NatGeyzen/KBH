@@ -48,6 +48,7 @@ const reducer = (state = initialState, action) => {
                     activePageNumber: 4
                 }
             }
+            break;
         case SET_ACTIVE_PAGE_ONSCROLLDOWN:
             if (state.activePageNumber !== 4) {
                 console.log('not page 4')
@@ -61,6 +62,7 @@ const reducer = (state = initialState, action) => {
                     activePageNumber: 1
                 }
             }
+            break;
         default:
             return state;
     };

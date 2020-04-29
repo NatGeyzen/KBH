@@ -8,6 +8,7 @@
     border: none;
     cursor: pointer;
     outline: none;
+    box-shadow: 2px 2px 3px rgb(165, 165, 165);
 }
 
 .ActiveNav {
@@ -52,28 +53,19 @@
 
 .FullNav {
     display: flex;
-    animation: showFullNav 0.3s ease-in-out forwards;
-    -webkit-animation: showFullNav 0.3s ease-in-out forwards;
+    animation: showFullNav 0.2s ease-in-out forwards;
+    -webkit-animation: showFullNav 0.2s ease-in-out forwards;
 }
 
 @keyframes showFullNav {
-    0% {
-       width: 20px;
-       opacity: 0;
-    } 
-    85% {
-        width: 150px;
-        opacity: 0.5;
-    }   
-    100% {
-        width: 120px;
-        opacity: 1;
-    }
+    0%      { width: 20px; opacity: 0; } 
+    85%     { width: 150px; opacity: 0.5; }   
+    100%    { width: 130px; opacity: 1; }
 }
 
 @keyframes hideFullNav {
     0% {
-       width: 120px;
+       width: 130px;
        transform: translateX(-10%);
     } 
     100% {

@@ -18,7 +18,7 @@ import './NavButton.css';
 const NavButton = props => {
 
     const { activePage, setActivePageOnClick } = props;
-
+    
     return (
         <button 
             className={props.id === activePage ? props.navItemClass + ' ActiveNav' : props.navItemClass}

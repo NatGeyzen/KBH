@@ -40,7 +40,7 @@ const App = props => {
 			}
 		}
 		window.addEventListener('wheel', onWheelHandler);
-	}, [])
+	}, [setActivePageOnScrollUp, setActivePageOnScrollDown])
 	
 	// JSX
     return (
