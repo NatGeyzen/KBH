@@ -21,10 +21,10 @@ const NavButton = props => {
 
     return (
         <button 
-            className={props.id === activePage ? props.buttonClassName + ' ActiveNav' : props.buttonClassName}
-            onClick={props.show ? () => setActivePageOnClick(props.id) : props.hoverToggleOn}
-            onMouseOver={props.hoverToggleOn}
-            onMouseLeave={props.hoverToggleOff}>
+            className={props.id === activePage ? props.navItemClass + ' ActiveNav' : props.navItemClass}
+            onClick={props.show ? props.hoveron : () => setActivePageOnClick(props.id)}
+            onMouseOver={props.hoveron}
+            onMouseLeave={props.hoverdone}>
             {props.show ? 
                 <li className="NavListItem">
                     <img src={props.icon} alt={props.alt} className="NavImage" />

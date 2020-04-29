@@ -1,6 +1,6 @@
 /* EXTERNAL COMPONENT IMPORTS
 ---------------------------------------- */
-import React, { useState, } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 /* INTERNAL COMPONENT IMPORTS
@@ -37,6 +37,7 @@ const Navigation = props => {
         [3, 'Sell', iconSell],
         [4, 'Contact Us', iconPhone]
     ];
+    const { pageMode } = props;
 
     //  CONDITIONAL VARIABLES
     let arrayToRender = [];
@@ -46,10 +47,12 @@ const Navigation = props => {
         arrayToRender = workWithPages;
     }
 
-
-
     const [ navItemCollapsed, setNavItemCollapsed ] = useState(true);
     const [ navItemClass, setNavItemClass ] = useState('NavItem');
+
+    useEffect(() => {
+        setNavItemClass('NavItem')
+    }, [pageMode]);
 
     const showFullNav = () => {
         setNavItemCollapsed(false);
@@ -71,10 +74,10 @@ const Navigation = props => {
                 <NavButton 
                     key={itemKey()}
                     id={page[0]}
-                    buttonClassName={navItemClass}
-                    hoverToggleOn={showFullNav}
-                    hoverToggleOff={hideFullNav}
+                    navItemClass={navItemClass}
                     show={!navItemCollapsed}
+                    hoveron={showFullNav}
+                    hoverdone={hideFullNav}
                     icon={page[2]}
                     alt={page[1]}
                     pageName={page[1]}
@@ -90,8 +93,7 @@ const Navigation = props => {
 ---------------------------------------- */
 const mapStateToProps = state => {
     return {
-        pageMode: state.pageModeToLearn,
-        activePage: state.activePageNumber
+        pageMode: state.pageModeToLearn
     };
 };
 

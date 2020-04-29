@@ -44,7 +44,7 @@
 
 .FooterFull {
     max-height: 70vh;
-    transition: max-height 0.6s ease-in;
+    transition: max-height 0.s ease-out;
 }
 
 @media (max-height: 700px) {
@@ -70,14 +70,9 @@
     ANIMATION EFFECTS
    ------------------------------ */
 
-.FooterTextHidden {
+.FooterTextVisible {
     animation: footerShow 0.3s ease-out forwards;
     -webkit-animation: footerShow 0.3s ease-out forwards;
-}
-
-.FooterTextVisible {
-    animation: footerHide 0.3s ease-out forwards;
-    -webkit-animation: footerHide 0.3s ease-out forwards;
 }
 
 @keyframes footerShow {
@@ -90,18 +85,5 @@
 
     100% {
         transform: translateY(5%);
-    }
-}
-
-@keyframes footerHide {
-    0% {
-        transform: translateY(5%);
-    }
-    50% {
-        transform: translateY(50%);
-    }
-
-    100% {
-        transform: translateY(150%);
     }
 }
