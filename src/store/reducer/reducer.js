@@ -42,10 +42,10 @@ const reducer = (state = initialState, action) => {
                     ...state,
                     activePageNumber: state.activePageNumber - 1
                 };    
-            } else {
+            } else if (state.activePageNumber === 1) {
                 return {
                     ...state,
-                    activePagenumber: 4
+                    activePageNumber: 4
                 }
             }
         case SET_ACTIVE_PAGE_ONSCROLLDOWN:
@@ -55,10 +55,10 @@ const reducer = (state = initialState, action) => {
                     ...state,
                     activePageNumber: state.activePageNumber + 1
                 };    
-            } else {
+            } else if (state.activePageNumber === 4) {
                 return {
                     ...state,
-                    activePagenumber: 1
+                    activePageNumber: 1
                 }
             }
         default:

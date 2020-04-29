@@ -50,18 +50,26 @@ const Navigation = props => {
     const [ navItemCollapsed, setNavItemCollapsed ] = useState(true);
     const [ navItemClass, setNavItemClass ] = useState('NavItem');
 
+    
     useEffect(() => {
-        setNavItemClass('NavItem')
+        setNavItemClass('NavItem');
     }, [pageMode]);
+
+    const resetAnimation = () => {
+        setNavItemClass('NavItem');
+    };
 
     const showFullNav = () => {
         setNavItemCollapsed(false);
         setNavItemClass('NavItem FullNav');
+        console.log('showing full nav');
     };
 
     const hideFullNav = () => {
         setNavItemCollapsed(true);
         setNavItemClass('NavItem CollapsedNav');
+        setTimeout(resetAnimation, 1000);
+        console.log('hiding full nav');
     }
 
     const itemKey = () => {
@@ -69,7 +77,9 @@ const Navigation = props => {
     };
     
     return (
-        <div className="Navigation">
+        <div className="Navigation" 
+        // onblur={hideFullNav}
+        >
             {arrayToRender.map(page => 
                 <NavButton 
                     key={itemKey()}

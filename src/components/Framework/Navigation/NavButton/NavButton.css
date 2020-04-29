@@ -46,8 +46,8 @@
    ------------------------------ */
 
 .CollapsedNav {
-    animation: hideFullNav 0.3s ease-in-out forwards;
-    -webkit-animation: hideFullNav 0.3s ease-in-out forwards;
+    animation: hideFullNav 0.2s ease-in-out forwards;
+    -webkit-animation: hideFullNav 0.2s ease-in-out forwards;
 }
 
 .FullNav {

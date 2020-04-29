@@ -35,9 +35,9 @@ const Footer = props => {
         <div 
             className={footerClass} 
             onClick={onClickFooterHandler}
-            // onMouseEnter={toggleFooterUp}
-            // onMouseLeave={toggleFooterDown}
-            >
+            onMouseEnter={toggleFooterUp}
+            onMouseLeave={toggleFooterDown}
+        >
             <ArrowButton 
                 className="ToggleFooterButton"
                 

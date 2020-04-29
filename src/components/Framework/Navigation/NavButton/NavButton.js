@@ -22,8 +22,8 @@ const NavButton = props => {
     return (
         <button 
             className={props.id === activePage ? props.navItemClass + ' ActiveNav' : props.navItemClass}
-            onClick={props.show ? props.hoveron : () => setActivePageOnClick(props.id)}
-            onMouseOver={props.hoveron}
+            onClick={props.show ? () => setActivePageOnClick(props.id) : props.hoveron }
+            onMouseEnter={props.hoveron}
             onMouseLeave={props.hoverdone}>
             {props.show ? 
                 <li className="NavListItem">
