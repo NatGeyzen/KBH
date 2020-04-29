@@ -3,6 +3,10 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
+/* INTERNAL FUNCTION IMPORTS
+---------------------------------------- */
+import { setActivePageOnScrollUp, setActivePageOnScrollDown } from './store/actions/actions';
+
 /* INTERNAL COMPONENT IMPORTS
 ---------------------------------------- */
 import Header from './components/Framework/Header/Header';
@@ -10,8 +14,12 @@ import Navigation from './components/Framework/Navigation/Navigation';
 import Footer from './components/Framework/Footer/Footer';
 import HomePageLearnMore from './pages/HomePageLearnMore/HomePageLearnMore';
 import AboutUs from './pages/AboutUs/AboutUs';
+import Blog from './pages/Blog/Blog';
+import MarketInsider from './pages/MarketInsider/MarketInsider';
 import HomePageWorkWith from './pages/HomePageWorkWith/HomePageWorkWith';
 import FindAHome from './pages//FindAHome/FindAHome';
+import Sell from './pages/Sell/Sell';
+import ContactUs from './pages/ContactUs/ContactUs';
 
 /* STYLE IMPORTS
 ---------------------------------------- */
@@ -22,47 +30,60 @@ import './App.css';
 ---------------------------------------- */
 const App = props => {
 
-	const onWheelHandler = (event) => {
-		if (event.deltaY < 0) {
-			console.log('scrolling up');
-		} else if (event.deltaY > 0) {
-			console.log('scrolling down');
-		}
-	}
+	// REDUX PROPS
+	const { 
+		pageMode, 
+		activePage, 
+		setActivePageOnScrollUp, 
+		setActivePageOnScrollDown 
+	} = props;
 
+	// SCROLL UP / DOWN NAV HANDLER
 	useEffect(() => {
-		window.addEventListener('wheel', onWheelHandler)	
+		const onWheelHandler = (event, activePage) => {
+			if (event.deltaY < 0) {
+				setActivePageOnScrollUp(activePage);
+				console.log(activePage);
+			} else if (event.deltaY > 0) {
+				setActivePageOnScrollDown(activePage);
+			}
+		}
+		window.addEventListener('wheel', onWheelHandler);
 	}, [])
 	
+	
+	// FUNCTION CALL
+	
 
-
-	// useEffect(() => {
-	// 	window.addEventListener('onwheel', onWheelHandler);
-	// }, []);
-	// useEffect(() => {
-	// 	window.removeEventListener('onwheel', onWheelHandler);
-	// }, []);
-
-
+	// RETURN THE CORRECT DYNAMICALLY RENDERED CONTENT
 	let dynamicPage;
-    if (props.pageMode) {
-        switch (props.activePage) {
+    if (pageMode) {
+        switch (activePage) {
 			case 1: dynamicPage = <HomePageLearnMore />; 
 				break;
 			case 2: dynamicPage = <AboutUs />; 
 				break;
+			case 3: dynamicPage = <Blog />;
+				break;
+			case 4: dynamicPage = <MarketInsider />
+				break;
             default: dynamicPage = <HomePageLearnMore />; 
         };
     } else {
-        switch (props.activePage) {
+        switch (activePage) {
 			case 1: dynamicPage = <HomePageWorkWith />; 
 				break;
 			case 2: dynamicPage = <FindAHome />; 
+				break;
+			case 3: dynamicPage = <Sell />;
+				break;
+			case 4: dynamicPage = <ContactUs />
 				break;
             default: dynamicPage = <HomePageWorkWith />;
 		};
 	};
 
+	// JSX
     return (
 		<div className="App">
 			<Header />
@@ -81,12 +102,13 @@ const mapStateToProps = state => {
         activePage: state.activePageNumber
     };
 };
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         : (pageID) => dispatch(setActivePageOnClick(pageID))
-//     };
-// };
+const mapDispatchToProps = dispatch => {
+    return {
+		setActivePageOnScrollUp: (currentPageNumber) => dispatch(setActivePageOnScrollUp(currentPageNumber)),
+		setActivePageOnScrollDown: (currentPageNumber) => dispatch(setActivePageOnScrollDown(currentPageNumber))
+    };
+};
 
 /* COMPONENT EXPORT
 ---------------------------------------- */
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
