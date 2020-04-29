@@ -1,8 +1,8 @@
 import { 
-    NAVIGATE_PAGES_ONSCROLLUP,
-    NAVIGATE_PAGES_ONSCROLLDOWN,
     TOGGLE_PAGE_MODE,
-    SET_ACTIVE_PAGE_ONCLICK
+    SET_ACTIVE_PAGE_ONCLICK,
+    SET_ACTIVE_PAGE_ONSCROLLUP,
+    SET_ACTIVE_PAGE_ONSCROLLDOWN
  } from '../actions/actionTypes';
 
 const initialState = {
@@ -44,12 +44,12 @@ const reducer = (state = initialState, action) => {
             } else { 
                 return state;
             }
-        case NAVIGATE_PAGES_ONSCROLLUP:
+        case SET_ACTIVE_PAGE_ONSCROLLUP:
             return {
                 ...state,
                 activePageNumber: action.currentPageNumber - 1
             };
-        case NAVIGATE_PAGES_ONSCROLLDOWN:
+        case SET_ACTIVE_PAGE_ONSCROLLDOWN:
             return {
                 ...state,
                 activePageNumber: action.currentPageNumber + 1

@@ -1,8 +1,8 @@
 import { 
     TOGGLE_PAGE_MODE,
     SET_ACTIVE_PAGE_ONCLICK,
-    NAVIGATE_PAGES_ONSCROLLUP,
-    NAVIGATE_PAGES_ONSCROLLDOWN
+    SET_ACTIVE_PAGE_ONSCROLLUP,
+    SET_ACTIVE_PAGE_ONSCROLLDOWN
 } from '../actions/actionTypes';
 
 export const togglePageMode = () => {
@@ -18,16 +18,16 @@ export const setActivePageOnClick = (pageID) => {
     };
 };
 
-export const navigatePagesOnScrollUp = (currentPageNumber) => {
+export const setActivePageOnScrollUp = (currentPageNumber) => {
     return {
-        type: NAVIGATE_PAGES_ONSCROLLUP,
+        type: SET_ACTIVE_PAGE_ONSCROLLUP,
         currentPageNumber
     };
 };
 
-export const navigatePagesOnScrollDown = (currentPageNumber) => {
+export const setActivePageOnScrollDown = (currentPageNumber) => {
     return {
-        type: NAVIGATE_PAGES_ONSCROLLDOWN,
+        type: SET_ACTIVE_PAGE_ONSCROLLDOWN,
         currentPageNumber
     };
 };

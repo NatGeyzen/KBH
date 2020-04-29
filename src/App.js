@@ -1,6 +1,6 @@
 /* EXTERNAL COMPONENT IMPORTS
 ---------------------------------------- */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 /* INTERNAL COMPONENT IMPORTS
@@ -22,6 +22,28 @@ import './App.css';
 ---------------------------------------- */
 const App = props => {
 
+	const onWheelHandler = (event) => {
+		if (event.deltaY < 0) {
+			console.log('scrolling up');
+		} else if (event.deltaY > 0) {
+			console.log('scrolling down');
+		}
+	}
+
+	useEffect(() => {
+		window.addEventListener('wheel', onWheelHandler)	
+	}, [])
+	
+
+
+	// useEffect(() => {
+	// 	window.addEventListener('onwheel', onWheelHandler);
+	// }, []);
+	// useEffect(() => {
+	// 	window.removeEventListener('onwheel', onWheelHandler);
+	// }, []);
+
+
 	let dynamicPage;
     if (props.pageMode) {
         switch (props.activePage) {
@@ -42,13 +64,12 @@ const App = props => {
 	};
 
     return (
-		<div 
-			className="App">
-            <Header />
-            <Navigation />
-            <Footer />  
+		<div className="App">
+			<Header />
+			<Navigation />
+			<Footer />  
 			{dynamicPage}
-        </div>
+		</div>	
     );
 }
 
@@ -60,6 +81,11 @@ const mapStateToProps = state => {
         activePage: state.activePageNumber
     };
 };
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         : (pageID) => dispatch(setActivePageOnClick(pageID))
+//     };
+// };
 
 /* COMPONENT EXPORT
 ---------------------------------------- */
