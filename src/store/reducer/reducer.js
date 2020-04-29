@@ -16,12 +16,14 @@ const reducer = (state = initialState, action) => {
             if (state.pageModeToLearn) {
                 return {
                     ...state,
-                    pageModeToLearn: false
+                    pageModeToLearn: false,
+                    activePageNumber: 1
                 } 
             } else {
                 return {
                     ...state,
-                    pageModeToLearn: true
+                    pageModeToLearn: true,
+                    activePageNumber: 1
                 }
             }
         case SET_ACTIVE_PAGE_ONCLICK:
